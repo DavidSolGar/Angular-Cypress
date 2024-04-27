@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<testsuites>
+<testsuite name="Root Suite" timestamp="2024-04-27T13:37:44" tests="0" file="cypress\e2e\firstTest.spec.js" time="0.000" failures="0"></testsuite>
+<testsuite name="Test with backend" timestamp="2024-04-27T13:37:44" tests="1" time="5.458" failures="0">
+  
+  <testcase name="Test with backend Deleting a new article in global feed" time="5.449" classname="Deleting a new article in global feed"></testcase>
+  
+</testsuite>
+
+<testsuite name="Root Suite" timestamp="2024-04-27T13:37:50" tests="0" file="cypress\e2e\secondTest.spec.js" time="0.000" failures="0"></testsuite>
+<testsuite name="Test log out" timestamp="2024-04-27T13:37:50" tests="1" time="31.552" failures="1">
+  
+  <testcase name="Test log out verify use can log out successfully" time="6.618" classname="verify use can log out successfully">
+    
+    <failure message="Timed out retrying after 4000ms: expected &apos;&lt;ul.nav.navbar-nav.pull-xs-right&gt;&apos; to contain &apos;Sign up2&apos;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: expected '<ul.nav.navbar-nav.pull-xs-right>' to contain 'Sign up2'
+    at Context.eval (webpack://realworld-app/./cypress/e2e/secondTest.spec.js:10:30)]]></failure>
+    
+  </testcase>
+  
+</testsuite>
+
+<testsuite name="Root Suite" timestamp="2024-04-27T13:38:23" tests="0" file="cypress\e2e\spec.spec.js" time="0.000" failures="0"></testsuite>
+<testsuite name="template spec" timestamp="2024-04-27T13:38:23" tests="1" time="2.868" failures="0">
+  
+  <testcase name="template spec passes" time="1.115" classname="passes"></testcase>
+  
+</testsuite>
+
+</testsuites>
