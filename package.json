@@ -6,7 +6,19 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "e2e": "ng e2e",
+    "ci:serve": "ng build && http-server dist -p 4200",
+    "cy:open_dev": "npx cypress open --env username=solizDEV@gmail.com,password=dev123",
+    "cy:open_qa": "npx cypress open --env username=solizQA@gmail.com,password=qa123",
+    "cy:open_process": "npx cypress open --env username=$DB_USERNAME,password=$PASSWORD",
+    "ci": "start-test start http-get://localhost:4200",
+    "ci2": "start-server-and-test http://localhost:4200",
+    "cypress:run": "npx cypress run",
+    "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run"
+
+
+
   },
   "private": true,
   "dependencies": {
@@ -27,12 +39,14 @@
     "@angular/cli": "^17.3.6",
     "@angular/compiler-cli": "^17.3.0",
     "@types/jasmine": "~5.1.0",
+    "cypress": "^13.8.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "start-server-and-test": "^2.0.3",
     "typescript": "~5.4.2"
   }
 }
