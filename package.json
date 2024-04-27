@@ -12,12 +12,8 @@
     "cy:open_dev": "npx cypress open --env username=solizDEV@gmail.com,password=dev123",
     "cy:open_qa": "npx cypress open --env username=solizQA@gmail.com,password=qa123",
     "cy:open_process": "npx cypress open --env username=$DB_USERNAME,password=$PASSWORD",
-    "ci": "start-test start http-get://localhost:4200",
-    "ci2": "start-server-and-test http://localhost:4200",
     "cypress:run": "npx cypress run",
     "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run"
-
-
 
   },
   "private": true,
