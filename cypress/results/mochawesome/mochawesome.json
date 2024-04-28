@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-04-27T13:37:44.289Z",
-    "end": "2024-04-27T13:37:49.750Z",
-    "duration": 5461,
+    "start": "2024-04-28T19:13:57.867Z",
+    "end": "2024-04-28T19:14:03.307Z",
+    "duration": 5440,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "6acfca39-c901-4b7f-9fae-8a1ec84e6fed",
+      "uuid": "680af2e6-4050-4508-8b81-7a83ac7d29ba",
       "title": "",
       "fullFile": "cypress\\e2e\\firstTest.spec.js",
       "file": "cypress\\e2e\\firstTest.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c0e24e68-439f-4fc1-b46d-a2ee50b10c31",
+          "uuid": "8d0f5c57-e07a-4a2b-a22d-680c262eec5a",
           "title": "Test with backend",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deleting a new article in global feed",
               "fullTitle": "Test with backend Deleting a new article in global feed",
               "timedOut": null,
-              "duration": 5449,
+              "duration": 5421,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "const bodyRequest = {\n  \"article\": {\n    \"title\": \"Request from API and Postman\",\n    \"description\": \"API is EASY\",\n    \"body\": \"Backend is Cool \",\n    \"tagList\": []\n  }\n};\ncy.get('@token').then(token => {\n  cy.request({\n    url: Cypress.env('apiUrl') + '/api/articles/',\n    headers: {\n      'Authorization': 'Token ' + token\n    },\n    method: 'POST',\n    body: bodyRequest\n  }).then(response => {\n    expect(response.status).to.equal(201);\n  });\n  cy.contains('Global Feed').click();\n  cy.get('.preview-link').first().click();\n  cy.get('.article-actions').contains('Delete Article').click();\n  cy.request({\n    url: Cypress.env('apiUrl') + '/api/articles?limit=10&offset=0',\n    headers: {\n      'Authorization': 'Token ' + token\n    },\n    method: 'GET'\n  }).its('body').then(body => {\n    expect(body.articles[0].title).not.to.equal('Request from API and Postman');\n  });\n});",
               "err": {},
-              "uuid": "e2a89e2a-e947-4063-9654-029be845e0a9",
-              "parentUUID": "c0e24e68-439f-4fc1-b46d-a2ee50b10c31",
+              "uuid": "6f9d053a-50bc-4bf2-a089-0bc0640a03f2",
+              "parentUUID": "8d0f5c57-e07a-4a2b-a22d-680c262eec5a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e2a89e2a-e947-4063-9654-029be845e0a9"
+            "6f9d053a-50bc-4bf2-a089-0bc0640a03f2"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 5449,
+          "duration": 5421,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

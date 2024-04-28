@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2024-04-27T13:37:50.856Z",
-    "end": "2024-04-27T13:38:22.414Z",
-    "duration": 31558,
+    "failures": 0,
+    "start": "2024-04-28T19:14:04.717Z",
+    "end": "2024-04-28T19:14:07.109Z",
+    "duration": 2392,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e4089a6f-b969-45ed-8db5-a01324c11ee7",
+      "uuid": "8c6c75e9-7eb9-4743-b8ef-25a977ea959e",
       "title": "",
       "fullFile": "cypress\\e2e\\secondTest.spec.js",
       "file": "cypress\\e2e\\secondTest.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "2210898e-3d89-4f79-92ff-41f5e2c49805",
+          "uuid": "5660c608-be9e-4f90-ac08-850ddf152773",
           "title": "Test log out",
           "fullFile": "",
           "file": "",
@@ -38,33 +38,29 @@
               "title": "verify use can log out successfully",
               "fullTitle": "Test log out verify use can log out successfully",
               "timedOut": null,
-              "duration": 6779,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 2362,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.contains('Settings').click();\ncy.contains('Or click here to logout').click();\ncy.get('.navbar-nav').should('contain', 'Sign up2');",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 4000ms: expected '<ul.nav.navbar-nav.pull-xs-right>' to contain 'Sign up2'",
-                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<ul.nav.navbar-nav.pull-xs-right>' to contain 'Sign up2'\n    at Context.eval (webpack://realworld-app/./cypress/e2e/secondTest.spec.js:10:30)",
-                "diff": null
-              },
-              "uuid": "ae175376-afb8-4770-b33f-64178cce9c7c",
-              "parentUUID": "2210898e-3d89-4f79-92ff-41f5e2c49805",
+              "code": "cy.contains('Settings').click();\ncy.contains('Or click here to logout').click();\ncy.get('.navbar-nav').should('contain', 'Sign up');",
+              "err": {},
+              "uuid": "c6faeb7c-699e-4529-b64b-4fddfae56a76",
+              "parentUUID": "5660c608-be9e-4f90-ac08-850ddf152773",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "ae175376-afb8-4770-b33f-64178cce9c7c"
+          "passes": [
+            "c6faeb7c-699e-4529-b64b-4fddfae56a76"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6779,
+          "duration": 2362,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
