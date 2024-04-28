@@ -9,6 +9,7 @@ module.exports = defineConfig({
     configFile: "reporter-config.json"
   },
 
+experimentalWebKitSupport: true,
 
   env: {
     username: 'testdavichin1@gmail.com',
