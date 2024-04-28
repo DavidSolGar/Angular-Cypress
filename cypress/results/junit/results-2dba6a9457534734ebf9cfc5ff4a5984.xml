@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="26.725" tests="5" failures="2" skipped="1">
+  <testsuite name="Root Suite" timestamp="2024-04-28T21:54:39" tests="0" file="cypress\e2e\firstTest.spec.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Test with backend" timestamp="2024-04-28T21:54:39" tests="5" time="26.722" failures="2">
+    <testcase name="Test with backend Verify correct request and response" time="3.438" classname="Verify correct request and response">
+      <failure message="expected 422 to equal 201" type="AssertionError"><![CDATA[AssertionError: expected 422 to equal 201
+    at  (webpack://realworld-app/./cypress/e2e/firstTest.spec.js:28:43)
+    at getRet (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:118341:20)
+    at tryCatcher (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1807:23)
+    at __webpack_modules__</module.exports/Promise.try (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:4315:29)
+    at thenFn (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:118352:60)
+    at then (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:118603:21)
+    at wrapped (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:138411:19)
+    at __webpack_modules__</runCommand (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:144325:15)
+    at tryCatcher (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1807:23)
+    at __webpack_modules__</module.exports/Promise.prototype._settlePromiseFromHandler (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1519:31)
+    at __webpack_modules__</module.exports/Promise.prototype._settlePromise (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1576:18)
+    at __webpack_modules__</module.exports/Promise.prototype._settlePromiseCtx (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1613:10)
+    at _drainQueueStep (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:2411:12)
+    at _drainQueue (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:2400:24)
+    at __webpack_modules__</Async.prototype._drainQueues (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:2416:16)
+    at __webpack_modules__</Async/this.drainQueues (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:2286:14)
+
+      + expected - actual
+
+      -422
+      +201
+      ]]></failure>
+    </testcase>
+    <testcase name="Test with backend Intercepting and modifying the request and response" time="3.999" classname="Intercepting and modifying the request and response">
+      <failure message="res.body.article is undefined" type="TypeError"><![CDATA[TypeError: res.body.article is undefined
+at <unknown> (webpack://realworld-app/./cypress/e2e/firstTest.spec.js:37:17)
+at __webpack_modules__</onResponse (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:137568:12)
+at tryCatcher (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1807:23)
+at __webpack_modules__</module.exports/Promise.try (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:4315:29)
+at onResponse (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:137567:58)
+at __webpack_modules__</registerEvents/ (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:137041:28)
+at tryCatcher (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1807:23)
+at __webpack_modules__</module.exports/Promise.try (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:4315:29)
+at __webpack_modules__</registerEvents (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:137005:53)
+at __webpack_modules__</EventEmitter.prototype.emit (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:141512:19)
+at __webpack_modules__</extend/events.proxyTo/parent[fn] (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:140418:31)
+at addGlobalListeners/ (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:145949:19)
+at Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)
+at emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36586:11)
+at emitEvent (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36861:16)
+at onevent (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36849:12)
+at onpacket (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36814:14)
+at Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)
+at emitReserved (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36599:11)
+at ondecoded (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:37276:10)
+at Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)
+at add (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36401:17)
+at ondata (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:37268:18)
+at Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)
+at onPacket (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:35872:16)
+at setTransport (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:35725:13)
+at Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)
+at onPacket (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34673:10)
+at onData (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34667:10)
+at addEventListeners/this.ws.onmessage (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:35427:38)]]></failure>
+    </testcase>
+    <testcase name="Test with backend Verify popular tags are displayed" time="1.224" classname="Verify popular tags are displayed">
+    </testcase>
+    <testcase name="Test with backend verify global feed likes count" time="1.839" classname="verify global feed likes count">
+    </testcase>
+  </testsuite>
+</testsuites>

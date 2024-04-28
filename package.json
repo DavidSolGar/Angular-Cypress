@@ -21,7 +21,8 @@
     "junit:merge":"npx junit-merge -d cypress/results/junit/ -o cypress/results/junit/result.xml",
 
     "cypress:run": "npm run prereport && npx cypress run",
-    "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run && npm run junit:merge && npm run mochawesome:merge"
+    "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run && npm run junit:merge && npm run mochawesome:merge",
+    "cy:run_spec":"npx cypress run --spec 'cypress/e2e/firstTest.spec.js' --browser edge --headed"
 
   },
   "private": true,

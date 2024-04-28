@@ -84,7 +84,7 @@ describe('Test with backend', () => {
       cy.get('app-article-list button').eq(1).click().should('contain', '6')
     })
   
-    it.only('Deleting a new article in global feed', () => {
+    it('Deleting a new article in global feed', {browser: ['!chrome', '!edge']}, () => {
   
       const bodyRequest = {
         "article": {

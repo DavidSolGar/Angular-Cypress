@@ -1,0 +1,192 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 2,
+    "pending": 1,
+    "failures": 2,
+    "start": "2024-04-28T21:54:39.637Z",
+    "end": "2024-04-28T21:55:06.362Z",
+    "duration": 26725,
+    "testsRegistered": 5,
+    "passPercent": 50,
+    "pendingPercent": 20,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2efcf00d-d71b-45e2-bad7-09fbc74e0f7b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\firstTest.spec.js",
+      "file": "cypress\\e2e\\firstTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fc330614-41e1-4b8f-8bc9-6e79b7a35740",
+          "title": "Test with backend",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify correct request and response",
+              "fullTitle": "Test with backend Verify correct request and response",
+              "timedOut": null,
+              "duration": 3286,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// utilizaremos un interceptor de llamadas al browser\ncy.intercept('POST', 'https://conduit-api.bondaracademy.com/api/articles').as('postArticles');\ncy.contains('New Article').click();\ncy.get('[formcontrolname=\"title\"]').type('This is the TITLE');\ncy.get('[formcontrolname=\"description\"]').type('this the DESCIPTION');\ncy.get('[formcontrolname=\"body\"]').type('This is the body of the ARTICLEEEEE');\ncy.contains('Publish Article').click();\ncy.wait('@postArticles'); // esperar a q se complete la peticion y no llegue vacia \ncy.get('@postArticles').then(xhr => {\n  console.log(xhr);\n  expect(xhr.response.statusCode).to.equal(201);\n  expect(xhr.request.body.article.body).to.equal('This is the body of the ARTICLEEEEE');\n});",
+              "err": {
+                "message": "AssertionError: expected 422 to equal 201",
+                "estack": "AssertionError: expected 422 to equal 201\n    at  (webpack://realworld-app/./cypress/e2e/firstTest.spec.js:28:43)\n    at getRet (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:118341:20)\n    at tryCatcher (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1807:23)\n    at __webpack_modules__</module.exports/Promise.try (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:4315:29)\n    at thenFn (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:118352:60)\n    at then (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:118603:21)\n    at wrapped (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:138411:19)\n    at __webpack_modules__</runCommand (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:144325:15)\n    at tryCatcher (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1807:23)\n    at __webpack_modules__</module.exports/Promise.prototype._settlePromiseFromHandler (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1519:31)\n    at __webpack_modules__</module.exports/Promise.prototype._settlePromise (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1576:18)\n    at __webpack_modules__</module.exports/Promise.prototype._settlePromiseCtx (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:2400:24)\n    at __webpack_modules__</Async.prototype._drainQueues (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:2416:16)\n    at __webpack_modules__</Async/this.drainQueues (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:2286:14)",
+                "diff": "- 422\n+ 201\n"
+              },
+              "uuid": "c273f9b8-651f-4a5c-bed3-1143154643e1",
+              "parentUUID": "fc330614-41e1-4b8f-8bc9-6e79b7a35740",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Intercepting and modifying the request and response",
+              "fullTitle": "Test with backend Intercepting and modifying the request and response",
+              "timedOut": null,
+              "duration": 3825,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('POST', '**/articles', req => {\n  req.reply(res => {\n    expect(res.body.article.description).to.equal('this is the DESCRIPTION GUYS'); // mensaje original \n    // aca cammbiamos el valor \n    res.body.article.description = \"this is the DESCRIPTION GUYS to intercept\";\n  });\n}).as('postArticles');\ncy.contains('New Article').click();\ncy.get('[formcontrolname=\"title\"]').type('This is the TITLE  GUYSSSSS');\ncy.get('[formcontrolname=\"description\"]').type('this is the DESCRIPTION GUYS');\ncy.get('[formcontrolname=\"body\"]').type('This is the body of the ARTICLEEEEE  GUYSSSS');\ncy.contains('Publish Article').click();\ncy.wait('@postArticles'); // esperar a q se complete la peticion y no llegue vacia \ncy.get('@postArticles').then(xhr => {\n  console.log(xhr);\n  expect(xhr.response.statusCode).to.equal(201);\n  expect(xhr.request.body.article.body).to.equal('This is the body of the ARTICLEEEEE  GUYSSSS');\n  // Aca mandamos el assert para ver si se creo con el valor q mandamos en la interception \n  expect(xhr.response.body.article.description).to.equal('this is the DESCRIPTION GUYS to intercept');\n});",
+              "err": {
+                "message": "TypeError: res.body.article is undefined",
+                "estack": "TypeError: res.body.article is undefined\nat <unknown> (webpack://realworld-app/./cypress/e2e/firstTest.spec.js:37:17)\nat __webpack_modules__</onResponse (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:137568:12)\nat tryCatcher (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1807:23)\nat __webpack_modules__</module.exports/Promise.try (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:4315:29)\nat onResponse (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:137567:58)\nat __webpack_modules__</registerEvents/ (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:137041:28)\nat tryCatcher (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:1807:23)\nat __webpack_modules__</module.exports/Promise.try (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:4315:29)\nat __webpack_modules__</registerEvents (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:137005:53)\nat __webpack_modules__</EventEmitter.prototype.emit (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:141512:19)\nat __webpack_modules__</extend/events.proxyTo/parent[fn] (https://conduit.bondaracademy.com/__cypress/runner/cypress_runner.js:140418:31)\nat addGlobalListeners/ (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:145949:19)\nat Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)\nat emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36586:11)\nat emitEvent (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36861:16)\nat onevent (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36849:12)\nat onpacket (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36814:14)\nat Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)\nat emitReserved (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36599:11)\nat ondecoded (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:37276:10)\nat Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)\nat add (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:36401:17)\nat ondata (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:37268:18)\nat Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)\nat onPacket (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:35872:16)\nat setTransport (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:35725:13)\nat Emitter2.prototype.emit (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34566:24)\nat onPacket (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34673:10)\nat onData (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:34667:10)\nat addEventListeners/this.ws.onmessage (https://conduit.bondaracademy.com/__/assets/index-b28d6e1f.js:35427:38)",
+                "diff": null
+              },
+              "uuid": "8639d837-e734-4ba4-88b8-5ce72d3f7026",
+              "parentUUID": "fc330614-41e1-4b8f-8bc9-6e79b7a35740",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify popular tags are displayed",
+              "fullTitle": "Test with backend Verify popular tags are displayed",
+              "timedOut": null,
+              "duration": 1224,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.tag-list').should('contain', 'cypress').should('contain', 'automation').should('contain', 'testing');",
+              "err": {},
+              "uuid": "371a20dd-a31f-4a92-8b12-89f76f1377a5",
+              "parentUUID": "fc330614-41e1-4b8f-8bc9-6e79b7a35740",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify global feed likes count",
+              "fullTitle": "Test with backend verify global feed likes count",
+              "timedOut": null,
+              "duration": 1839,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('GET', 'https://conduit-api.bondaracademy.com/api/articles/feed*', {\n  \"articles\": [],\n  \"articlesCount\": 0\n});\ncy.intercept('GET', 'https://conduit-api.bondaracademy.com/api/articles*', {\n  fixture: 'articles.json'\n});\ncy.contains('Global Feed').click();\ncy.get('app-article-list button').then(heartList => {\n  expect(heartList[0]).to.contain('1');\n  expect(heartList[1]).to.contain('5');\n});\ncy.fixture('articles').then(file => {\n  const artcicleLink = file.articles[1].slug;\n  file.articles[1].favoritesCount = 6;\n  cy.intercept('POST', 'https://conduit-api.bondaracademy.com/api/articles/' + artcicleLink + '/favorite');\n});\ncy.get('app-article-list button').eq(1).click().should('contain', '6');",
+              "err": {},
+              "uuid": "ce22e503-98ce-4457-9898-2fbdebae3bb5",
+              "parentUUID": "fc330614-41e1-4b8f-8bc9-6e79b7a35740",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deleting a new article in global feed (skipped due to browser)",
+              "fullTitle": "Test with backend Deleting a new article in global feed (skipped due to browser)",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "const bodyRequest = {\n  \"article\": {\n    \"title\": \"Request from API and Postman\",\n    \"description\": \"API is EASY\",\n    \"body\": \"Backend is Cool \",\n    \"tagList\": []\n  }\n};\ncy.get('@token').then(token => {\n  cy.request({\n    url: Cypress.env('apiUrl') + '/api/articles/',\n    headers: {\n      'Authorization': 'Token ' + token\n    },\n    method: 'POST',\n    body: bodyRequest\n  }).then(response => {\n    expect(response.status).to.equal(201);\n  });\n  cy.contains('Global Feed').click();\n  cy.get('.preview-link').first().click();\n  cy.get('.article-actions').contains('Delete Article').click();\n  cy.request({\n    url: Cypress.env('apiUrl') + '/api/articles?limit=10&offset=0',\n    headers: {\n      'Authorization': 'Token ' + token\n    },\n    method: 'GET'\n  }).its('body').then(body => {\n    expect(body.articles[0].title).not.to.equal('Request from API and Postman');\n  });\n});",
+              "err": {},
+              "uuid": "1093a427-0839-4144-82ba-948764b58577",
+              "parentUUID": "fc330614-41e1-4b8f-8bc9-6e79b7a35740",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "371a20dd-a31f-4a92-8b12-89f76f1377a5",
+            "ce22e503-98ce-4457-9898-2fbdebae3bb5"
+          ],
+          "failures": [
+            "c273f9b8-651f-4a5c-bed3-1143154643e1",
+            "8639d837-e734-4ba4-88b8-5ce72d3f7026"
+          ],
+          "pending": [
+            "1093a427-0839-4144-82ba-948764b58577"
+          ],
+          "skipped": [],
+          "duration": 10174,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
