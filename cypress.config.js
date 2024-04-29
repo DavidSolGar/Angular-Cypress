@@ -1,9 +1,10 @@
 const { defineConfig } = require("cypress");
-module.exports = defineConfig({
 
+module.exports = defineConfig({
+  projectId: 'b6ivko',
   viewportHeight: 1080,
   viewportWidth: 1920,
-  video: false,
+  video: true,
   reporter : "cypress-multi-reporters",
     reporterOptions : {
     configFile: "reporter-config.json"
